@@ -82,7 +82,7 @@ const Brand = () => {
           <FilterItem />
           {isFilteredItems.length !== 0 ? (
             <>
-              <SortItem isAreacode={isAreacode} handlePriceLow={handlePriceLow} handlePriceHigh={handlePriceHigh} handleBuycount={handleBuycount} />
+              <SortItem isAreacode={isAreacode} handlePriceLow={handlePriceLow} handlePriceHigh={handlePriceHigh} handleBuycount={handleBuycount} count={isFilteredItems.length} />
               <ItemContainer isFilteredItems={isFilteredItems} setIsFilteredItems={setIsFilteredItems} checkedInputs={checkedInputs} />
             </>
           ) : (

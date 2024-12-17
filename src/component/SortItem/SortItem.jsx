@@ -2,13 +2,13 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 
-const SortItem = ({ handlePriceLow, handlePriceHigh, isAreacode, handleBuycount }) => {
+const SortItem = ({ handlePriceLow, handlePriceHigh, isAreacode, handleBuycount, count }) => {
   const [isSortLayer, setIsSortLayer] = useState(false);
 
   return (
     <div className='box__sorting-information'>
       <div className='box__search-result'>
-        <span className='text__item-count text__emphasis'>346</span>
+        <span className='text__item-count text__emphasis'>{count}</span>
         <span className='text'>개의 검색 결과</span>
       </div>
       <div className='box__sorting'>
