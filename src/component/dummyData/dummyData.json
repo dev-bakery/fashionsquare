@@ -927,5 +927,551 @@
       }
     ],
     "bannerCount": 4
+  },
+  "categories":[
+  {
+    "categoryNo": "100000000",
+    "categoryName": "여성",
+    "categoryImageUrl": "https://image.gmarket.co.kr/hanbando/202205/38c48989-365b-446a-a6cc-7bf19670cfb0.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000000",
+        "categoryName": "자켓/코트/베스트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000001",
+        "categoryName": "야상/점퍼/패딩",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000002",
+        "categoryName": "니트/가디건",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000003",
+        "categoryName": "원피스",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000004",
+        "categoryName": "티셔츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000005",
+        "categoryName": "바지/레깅스",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000006",
+        "categoryName": "블라우스/셔츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000007",
+        "categoryName": "스커트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000008",
+        "categoryName": "맨투맨/후드티",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000009",
+        "categoryName": "가죽/모피",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000010",
+        "categoryName": "수영복/트레이닝",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000011",
+        "categoryName": "정장",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000001",
+    "categoryName": "남성",
+    "categoryImageUrl": "https://image.gmarket.co.kr/hanbando/202205/7c10fffd-95a3-421b-9fe6-77c3597aa1e7.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000012",
+        "categoryName": "점퍼/패딩",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000013",
+        "categoryName": "자켓/코트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000014",
+        "categoryName": "니트/가디건/베스트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000015",
+        "categoryName": "셔츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000016",
+        "categoryName": "티셔츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000017",
+        "categoryName": "팬츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000018",
+        "categoryName": "정장",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000019",
+        "categoryName": "스포츠웨어",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000002",
+    "categoryName": "캐쥬얼",
+    "categoryImageUrl": "https://image.gmarket.co.kr/hanbando/202205/591a1fff-d163-48ee-9b4a-149a5053c9ec.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000020",
+        "categoryName": "자켓/점퍼/코트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000021",
+        "categoryName": "니트/가디건",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000022",
+        "categoryName": "티셔츠/셔츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000023",
+        "categoryName": "팬츠",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000024",
+        "categoryName": "원피스/스커트",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000003",
+    "categoryName": "스포츠",
+    "categoryImageUrl": "http://image.gmarket.co.kr/hanbando/202109/98506245-d4b6-49cf-a4cd-a4893728a286.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000025",
+        "categoryName": "스포츠패션/잡화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000026",
+        "categoryName": "등산/아웃도어",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000027",
+        "categoryName": "휘트니스/수영",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000028",
+        "categoryName": "골프",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000029",
+        "categoryName": "자전거/보드",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000030",
+        "categoryName": "구기/라켓",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000031",
+        "categoryName": "캠핑/낚시",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000004",
+    "categoryName": "유아동",
+    "categoryImageUrl": "https://image.gmarket.co.kr/hanbando/202205/1f8c208f-992b-4b8b-b6b5-6b59e8c3b933.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000032",
+        "categoryName": "육아용품",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000033",
+        "categoryName": "유아동공용의류",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000034",
+        "categoryName": "여아의류",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000035",
+        "categoryName": "남아의류",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000036",
+        "categoryName": "아동스포츠의류",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000037",
+        "categoryName": "신생아의류",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000038",
+        "categoryName": "유아동신발",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000039",
+        "categoryName": "유아동 가방",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000040",
+        "categoryName": "유아동내의/잠옷",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000041",
+        "categoryName": "유아동잡화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000042",
+        "categoryName": "장난감",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000005",
+    "categoryName": "가방/잡화",
+    "categoryImageUrl": "http://image.gmarket.co.kr/hanbando/202109/fec0a2c6-f8c7-427b-a986-be9e62e1f895.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000044",
+        "categoryName": "여성가방",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000045",
+        "categoryName": "남성가방",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000046",
+        "categoryName": "지갑/벨트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000047",
+        "categoryName": "쥬얼리",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000048",
+        "categoryName": "양말/스타킹",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000049",
+        "categoryName": "시계",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000050",
+        "categoryName": "패션잡화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000051",
+        "categoryName": "백팩/캐주얼가방",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000052",
+        "categoryName": "스카프/머플러",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000053",
+        "categoryName": "모자",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000054",
+        "categoryName": "기타ACC",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000055",
+        "categoryName": "여행가방/소품",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000056",
+        "categoryName": "장갑",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000057",
+        "categoryName": "액세서리",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000058",
+        "categoryName": "선글라스/안경테",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000006",
+    "categoryName": "슈즈",
+    "categoryImageUrl": "http://image.gmarket.co.kr/hanbando/202109/8a5e3409-4af6-46cd-b236-9f380c5ddf3a.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000059",
+        "categoryName": "여성화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000060",
+        "categoryName": "남성화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000061",
+        "categoryName": "캐주얼화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000062",
+        "categoryName": "스니커즈/슬립온",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000063",
+        "categoryName": "운동화",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000064",
+        "categoryName": "여성샌들",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000065",
+        "categoryName": "실내화/슬리퍼",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000066",
+        "categoryName": "힐/펌프스",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000067",
+        "categoryName": "아쿠아슈즈/쪼리",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000068",
+        "categoryName": "신발용품",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000069",
+        "categoryName": "명품슈즈",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
+  },
+  {
+    "categoryNo": "100000007",
+    "categoryName": "언더웨어",
+    "categoryImageUrl": "http://image.gmarket.co.kr/hanbando/202109/bbeb2939-7e9e-448a-9145-56283d8e5203.jpg",
+    "subCategories": [
+      {
+        "categoryNo": "200000070",
+        "categoryName": "여성브라",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000071",
+        "categoryName": "여성팬티",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000072",
+        "categoryName": "브라팬티세트",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000073",
+        "categoryName": "브라탑/런닝/속바지",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000074",
+        "categoryName": "남성런닝",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000075",
+        "categoryName": "남성팬티",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000076",
+        "categoryName": "잠옷/파자마",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000077",
+        "categoryName": "홈웨어/이지웨어",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000078",
+        "categoryName": "내의/이너웨어",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000079",
+        "categoryName": "주니어속옷",
+        "subCategories": [],
+        "isNew": false
+      },
+      {
+        "categoryNo": "200000080",
+        "categoryName": "주니어내의/파자마",
+        "subCategories": [],
+        "isNew": false
+      }
+    ],
+    "isNew": false
   }
+]
 }
