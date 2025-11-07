@@ -5,11 +5,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
     ],
-    "/brand/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/brand/page.js"
-    ],
     "/category/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

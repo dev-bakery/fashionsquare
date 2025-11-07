@@ -1,5 +1,6 @@
 import CategoryLayer from "@/component/Category/CategoryLayer";
 import CategoryTab from "@/component/Category/CategoryTab";
+import CategoryList from "@/component/Category/CategoryList";
 import dummyData from "@/component/dummyData/dummyData.json";
 import TabNavigation from "@/component/TabNavigation/TabNavigation";
 
@@ -13,6 +14,7 @@ const Category = () => {
       </div>
       <CategoryTab data={dummyData.categories} />
       <CategoryLayer data={dummyData.categories} />
+      <CategoryList />
     </>
   );
 };
