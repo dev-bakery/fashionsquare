@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import ItemCard from "../ItemCard/ItemCard";
 
 const CategoryList = () => {
   const [items, setItems] = useState([]);
@@ -16,8 +17,8 @@ const CategoryList = () => {
   if (loading) return <p>불러오는 중...</p>;
   return (
     <div className='box__itemcard-wrap'>
-      {items.map((item) => (
-        <li></li>
+      {items.map((item, index) => (
+        <ItemCard key={index} item={item} />
       ))}
     </div>
   );
