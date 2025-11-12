@@ -10,12 +10,7 @@ const ItemCardImage = ({ isBigSmileItem, imageUrl, itemName }) => {
           alt='빅세일'
         />
       )}
-      <img
-        key={imageUrl}
-        src={imageUrl}
-        className='image__itemcard'
-        alt={itemName}
-      />
+      <img key={imageUrl} src={imageUrl} className='image__itemcard' alt='' />
     </span>
   );
 };

@@ -40,6 +40,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
           <BottomNavigation />
+          <Footer />
         </div>
       </body>
     </html>

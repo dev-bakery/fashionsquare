@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCardImage from "./ItemCardImage";
+import ItemCardInfo from "./ItemCardInfo";
 
 const ItemCard = ({ item }) => {
   const {
@@ -34,6 +35,21 @@ const ItemCard = ({ item }) => {
               isBigSmileItem={isBigSmileItem}
             />
           </a>
+          <div className='box__itemcard-info'>
+            <ItemCardInfo
+              itemUrl={itemUrl}
+              sdBrandName={sdBrandName}
+              isFashionSquareSeller={isFashionSquareSeller}
+              isLmoOfficialSeller={isLmoOfficialSeller}
+              hotSignalTitle={hotSignalTitle}
+              itemName={itemName}
+              itemPrice={itemPrice}
+              deliveryText={deliveryText}
+              buyCount={buyCount}
+              reviewPoint={reviewPoint}
+              lmos={lmos}
+            />
+          </div>
         </div>
       </div>
     </div>
