@@ -22,30 +22,20 @@ const FilterLayer = () => {
                 <ul className='list__category'>
                   <li className='list-item'>
                     <div className='box__link-category'>
-                      <input
-                        type='checkbox'
-                        name='t:n'
-                        id='checkbox-t:n-0'
-                        className='form__input-checkbox'
-                        value=''
+                      <Checkbox
+                        id={"checkbox-simple-t:n-0"}
+                        name={"t:n"}
+                        text={"신상품"}
                       />
-                      <label for='checkbox-t:n-0' className='form__label'>
-                        <span className='text__label'>신상품</span>
-                      </label>
                     </div>
                   </li>
                   <li className='list-item'>
                     <div className='box__link-category'>
-                      <input
-                        type='checkbox'
-                        name='d:f'
-                        id='checkbox-d:f-1'
-                        className='form__input-checkbox'
-                        value=''
+                      <Checkbox
+                        id={"checkbox-simple-d:f-0"}
+                        name={"d:f"}
+                        text={"무료배송"}
                       />
-                      <label for='checkbox-d:f-1' className='form__label'>
-                        <span className='text__label'>무료배송</span>
-                      </label>
                     </div>
                   </li>
                 </ul>

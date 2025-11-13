@@ -1,6 +1,7 @@
 import React from "react";
 import { filterLayerAtom } from "../atom/atom";
 import { useAtom } from "jotai";
+import Checkbox from "../Parts/Checkbox";
 
 const FilterItem = () => {
   const [filterLayer, setFilterLayer] = useAtom(filterLayerAtom);
@@ -10,28 +11,18 @@ const FilterItem = () => {
       <div className='box__filter-item-inner'>
         <div className='box__filter-quick'>
           <div className='box__quick-item'>
-            <input
-              type='checkbox'
-              name='t:n'
-              id='checkbox-simple-t:n-'
-              className='form__input-checkbox'
-              value=''
+            <Checkbox
+              id={"checkbox-simple-t:n-"}
+              name={"t:n"}
+              text={"신상품"}
             />
-            <label htmlFor='checkbox-simple-t:n-' className='form__label'>
-              신상품
-            </label>
           </div>
           <div className='box__quick-item'>
-            <input
-              type='checkbox'
-              name='d:f'
-              id='checkbox-simple-d:f-'
-              className='form__input-checkbox'
-              value=''
+            <Checkbox
+              id={"checkbox-simple-d:f-"}
+              name={"d:f"}
+              text={"무료배송"}
             />
-            <label htmlFor='checkbox-simple-d:f-' className='form__label'>
-              무료배송
-            </label>
           </div>
           <button
             type='button'
