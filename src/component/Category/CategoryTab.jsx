@@ -1,3 +1,4 @@
+"use client";
 import classNames from "classnames";
 import React from "react";
 import CategoryItem from "./CategoryItem";
@@ -36,24 +37,6 @@ const CategoryTab = ({ data }) => {
               </ul>
             </div>
           </div>
-        </div>
-        <div className='box__2depth-content'>
-          <ul className='list__category'>
-            {data.map((item, i) => {
-              const { subCategories } = item;
-              return (
-                <>
-                  {subCategories.map((v, j) => (
-                    <li key={j} className='list-item'>
-                      <a className='link__category' href=''>
-                        {v.categoryName}
-                      </a>
-                    </li>
-                  ))}
-                </>
-              );
-            })}
-          </ul>
         </div>
       </div>
     </div>

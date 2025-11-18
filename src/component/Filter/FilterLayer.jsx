@@ -3,6 +3,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { filterLayerAtom } from "../atom/atom";
 import FilterTitle from "./FilterTitle";
+import Checkbox from "../Parts/Checkbox";
 
 const FilterLayer = () => {
   const [filterLayer, setFilterLayer] = useAtom(filterLayerAtom);
