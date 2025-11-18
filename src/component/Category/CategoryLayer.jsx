@@ -2,10 +2,11 @@ import classNames from "classnames";
 import React from "react";
 import CategoryItem from "./CategoryItem";
 import { useAtom } from "jotai";
-import { categoryLayerAtom } from "../atom/atom";
+import { categoryLayerAtom, activeCategoryAtom } from "../atom/atom";
 
 const CategoryLayer = ({ data }) => {
   const [categoryLayer, setCategoryLayer] = useAtom(categoryLayerAtom);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useAtom(activeCategoryAtom);
   return (
     <div className={classNames("box__layer-category", categoryLayer && "box__layer-category--active")} role='dialog' aria-modal='true'>
       <div className='box__layer-content'>
@@ -17,7 +18,16 @@ const CategoryLayer = ({ data }) => {
         </div>
         <ul className='list__category'>
           {data?.map((category, index) => (
-            <CategoryItem key={category.categoryNo} index={index} category={category} onSelect={() => setCategoryLayer(false)} />
+            <CategoryItem
+              key={category.categoryNo}
+              index={index}
+              category={category}
+              isActive={index === activeCategoryIndex}
+              onSelect={() => {
+                setActiveCategoryIndex(index);
+                setCategoryLayer(false);
+              }}
+            />
           ))}
         </ul>
       </div>

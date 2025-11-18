@@ -1,6 +1,6 @@
 import React from "react";
 
-const Checkbox = ({ id, name, text }) => {
+const Checkbox = ({ id, name, text, checked, onChange }) => {
   return (
     <>
       <input
@@ -9,6 +9,8 @@ const Checkbox = ({ id, name, text }) => {
         id={id}
         className='form__input-checkbox'
         value=''
+        checked={checked}
+        onChange={onChange}
       />
       <label htmlFor={id} className='form__label'>
         {text}

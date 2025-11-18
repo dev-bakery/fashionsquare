@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ItemCard from "../ItemCard/ItemCard";
 
@@ -8,9 +8,15 @@ const CategoryList = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // URL에서 f=c:100000000 추출
-  const fParam = searchParams.get("f"); // c:100000000
-  const categoryCode = fParam?.split(":")[1] || "100000000";
+  const tokens = useMemo(() => {
+    const fParam = searchParams.get("f");
+    return fParam ? fParam.split(",").filter(Boolean) : [];
+  }, [searchParams]);
+
+  const categoryToken = tokens.find((token) => token.startsWith("c:"));
+  const categoryCode = categoryToken?.split(":")[1] || "100000000";
+
+  const filterTokens = useMemo(() => tokens.filter((token) => !token.startsWith("c:")), [tokens]);
 
   useEffect(() => {
     if (!categoryCode) return;
@@ -27,11 +33,27 @@ const CategoryList = () => {
       .catch(() => setLoading(false));
   }, [categoryCode]);
 
+  const filteredItems = useMemo(() => {
+    if (!filterTokens.length) return items;
+
+    return items.filter((item) =>
+      filterTokens.every((token) => {
+        if (token === "t:n") {
+          return Boolean(item?.isNew);
+        }
+        if (token === "d:f") {
+          return item?.deliveryText === "무료배송";
+        }
+        return true;
+      })
+    );
+  }, [items, filterTokens]);
+
   if (loading) return <p>불러오는 중...</p>;
 
   return (
     <div className='box__itemcard-wrap'>
-      {items.map((item, index) => (
+      {filteredItems.map((item, index) => (
         <ItemCard key={index} item={item} />
       ))}
     </div>
