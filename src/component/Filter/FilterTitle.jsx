@@ -13,7 +13,7 @@ const FilterTitle = ({ selectedFilters, onReset }) => {
       <h3 className='text__title'>필터</h3>
       {selectedFilters.length > 0 && (
         <div className='box__filter-reset'>
-          <button type='button' className='button__reset' onClick={handleReset}>
+          <button type='button' className='button__filter-reset' onClick={handleReset}>
             모두 지우기
           </button>
         </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ItemCard from "../ItemCard/ItemCard";
 
-const CategoryList = () => {
+const CategoryList = ({ onCountChange }) => {
   const searchParams = useSearchParams();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,6 +33,8 @@ const CategoryList = () => {
       .catch(() => setLoading(false));
   }, [categoryCode]);
 
+  const sortParam = searchParams.get("s") || "1";
+
   const filteredItems = useMemo(() => {
     if (!filterTokens.length) return items;
 
@@ -49,11 +51,31 @@ const CategoryList = () => {
     );
   }, [items, filterTokens]);
 
+  const sortedItems = useMemo(() => {
+    const list = [...filteredItems];
+    switch (sortParam) {
+      case "1":
+        return list.sort((a, b) => (b?.buyCount || 0) - (a?.buyCount || 0));
+      case "2":
+        return list.sort((a, b) => (a?.itemPrice || 0) - (b?.itemPrice || 0));
+      case "3":
+        return list.sort((a, b) => (b?.itemPrice || 0) - (a?.itemPrice || 0));
+      default:
+        return list;
+    }
+  }, [filteredItems, sortParam]);
+
+  useEffect(() => {
+    if (!loading) {
+      onCountChange?.(sortedItems.length);
+    }
+  }, [sortedItems, loading, onCountChange]);
+
   if (loading) return <p>불러오는 중...</p>;
 
   return (
     <div className='box__itemcard-wrap'>
-      {filteredItems.map((item, index) => (
+      {sortedItems.map((item, index) => (
         <ItemCard key={index} item={item} />
       ))}
     </div>
