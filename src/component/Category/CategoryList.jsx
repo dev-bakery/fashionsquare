@@ -21,13 +21,15 @@ const CategoryList = ({ onCountChange }) => {
   useEffect(() => {
     if (!categoryCode) return;
 
-    const apiUrl = `https://690d9707a6d92d83e85226b2.mockapi.io/api/${categoryCode}`;
+    const apiUrl = new URL("http://localhost:1337/api/fashion-triangles");
+    apiUrl.searchParams.append("filters[lcode][$eq]", categoryCode);
 
     setLoading(true);
-    fetch(apiUrl)
+    fetch(apiUrl.toString())
       .then((res) => res.json())
-      .then((data) => {
-        setItems(data);
+      .then((payload) => {
+        const normalizedItems = Array.isArray(payload) ? payload : Array.isArray(payload?.data) ? payload.data.map((item) => (item?.attributes ? { id: item.id, ...item.attributes } : item)) : [];
+        setItems(normalizedItems);
         setLoading(false);
       })
       .catch(() => setLoading(false));
