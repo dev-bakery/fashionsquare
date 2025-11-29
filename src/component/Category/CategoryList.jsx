@@ -21,14 +21,48 @@ const CategoryList = ({ onCountChange }) => {
   useEffect(() => {
     if (!categoryCode) return;
 
-    const apiUrl = new URL("http://localhost:1337/api/fashion-triangles");
+    const apiUrl = new URL("http://localhost:1337/api/fashion-triangles?populate=*");
     apiUrl.searchParams.append("filters[lcode][$eq]", categoryCode);
 
     setLoading(true);
     fetch(apiUrl.toString())
       .then((res) => res.json())
       .then((payload) => {
-        const normalizedItems = Array.isArray(payload) ? payload : Array.isArray(payload?.data) ? payload.data.map((item) => (item?.attributes ? { id: item.id, ...item.attributes } : item)) : [];
+        const normalizedItems = Array.isArray(payload)
+          ? payload
+          : Array.isArray(payload?.data)
+          ? payload.data.map((item) => {
+              const attributes = item?.attributes ? { id: item.id, ...item.attributes } : item;
+              console.log(attributes);
+              // Strapi 컴포넌트 구조 처리: reviewPoint
+              if (attributes.reviewPoint) {
+                if (attributes.reviewPoint.data) {
+                  // 관계형 데이터인 경우
+                  attributes.reviewPoint = Array.isArray(attributes.reviewPoint.data) ? attributes.reviewPoint.data[0]?.attributes || attributes.reviewPoint.data[0] : attributes.reviewPoint.data?.attributes || attributes.reviewPoint.data;
+                }
+              }
+
+              // Strapi 컴포넌트 구조 처리: lmos
+              if (attributes.lmos) {
+                if (Array.isArray(attributes.lmos)) {
+                  attributes.lmos = attributes.lmos.map((lmo) => {
+                    if (lmo?.attributes) {
+                      return lmo.attributes;
+                    }
+                    if (lmo?.data) {
+                      return Array.isArray(lmo.data) ? lmo.data.map((d) => d?.attributes || d) : lmo.data?.attributes || lmo.data;
+                    }
+                    return lmo;
+                  });
+                } else if (attributes.lmos.data) {
+                  // 단일 관계형 데이터인 경우
+                  attributes.lmos = Array.isArray(attributes.lmos.data) ? attributes.lmos.data.map((d) => d?.attributes || d) : [attributes.lmos.data?.attributes || attributes.lmos.data];
+                }
+              }
+
+              return attributes;
+            })
+          : [];
         setItems(normalizedItems);
         setLoading(false);
       })

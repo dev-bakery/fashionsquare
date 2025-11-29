@@ -11,22 +11,13 @@ const HotSignalInfo = ({ hotSignalTitle }) => {
   );
 };
 
-const ItemCardTitle = ({
-  itemName,
-  isLmoOfficialSeller,
-  sdBrandName,
-  isFashionSquareSeller,
-}) => {
+const ItemCardTitle = ({ itemName, isLmoOfficialSeller, sdBrandName, isFashionSquareSeller }) => {
   return (
     <span className='box__itemcard-title-area'>
       <span className='text__brand'>
         {isFashionSquareSeller && (
           <span className='box__itemcard-fashion-tag'>
-            <img
-              className='image'
-              src={`//script.gmarket.co.kr/build/mobile/image/single/fashionsquare/component/itemcard/logo_fashionsquare_3x.png`}
-              alt='패션스퀘어 상품'
-            />
+            <img className='image' src={`//script.gmarket.co.kr/build/mobile/image/single/fashionsquare/component/itemcard/logo_fashionsquare_3x.png`} alt='패션스퀘어 상품' />
           </span>
         )}
         {sdBrandName && <span className='text'>{sdBrandName}</span>}
@@ -47,10 +38,7 @@ const PriceInfo = ({ itemPrice }) => {
   return (
     <span className='box__itemcard-price-area'>
       <span className='box__price-seller'>
-        <strong className='text__price-seller'>
-          {" "}
-          {numberFormat(itemPrice)}
-        </strong>
+        <strong className='text__price-seller'> {numberFormat(itemPrice)}</strong>
         <span className='text__unit'>원</span>
       </span>
     </span>
@@ -67,7 +55,9 @@ const DeliveryInfo = ({ deliveryText }) => {
 };
 
 const ReviewInfo = ({ reviewPoint, buyCount }) => {
-  const { starPoint = 0, reviewCount = 0 } = reviewPoint || {};
+  // Strapi 구조 대응: reviewPoint가 객체이거나 null/undefined일 수 있음
+  const reviewData = reviewPoint && typeof reviewPoint === "object" ? reviewPoint : {};
+  const { starPoint = 0, reviewCount = 0 } = reviewData;
   const hasStarPoint = starPoint > 0;
   const hasReviewCount = reviewCount > 0;
   const hasBuyCount = buyCount > 0;
@@ -104,50 +94,41 @@ const ReviewInfo = ({ reviewPoint, buyCount }) => {
 };
 
 const ItemCardLmo = ({ lmos }) => {
-  if (!lmos) return null;
+  // Strapi 구조 대응: lmos가 배열이거나 null/undefined일 수 있음
+  if (!lmos || !Array.isArray(lmos) || lmos.length === 0) return null;
+
   return (
     <span className='box__itemcard-benefit-tag'>
-      {lmos.map((lmo, i) => (
-        <span
-          key={i}
-          className={classNames("box__tag", {
-            "box__tag-coupon": lmo?.lmoType === "COUPON",
-            "box__tag-card": lmo?.lmoType === "EXTRA_DISCOUNT",
-            "box__tag-gift": ["FREE_GIFT", "ONE_PLUS_ONE"].includes(
-              lmo?.lmoType
-            ),
-          })}
-        >
-          <span className='box__inner'>{lmo?.lmoString}</span>
-        </span>
-      ))}
+      {lmos.map((lmo, i) => {
+        // lmo가 객체인지 확인
+        if (!lmo || typeof lmo !== "object") return null;
+
+        const lmoType = lmo?.lmoType || lmo?.lmo_type;
+        const lmoString = lmo?.lmoString || lmo?.lmo_string;
+
+        if (!lmoString) return null;
+
+        return (
+          <span
+            key={i}
+            className={classNames("box__tag", {
+              "box__tag-coupon": lmoType === "COUPON",
+              "box__tag-card": lmoType === "EXTRA_DISCOUNT",
+              "box__tag-gift": ["FREE_GIFT", "ONE_PLUS_ONE"].includes(lmoType),
+            })}>
+            <span className='box__inner'>{lmoString}</span>
+          </span>
+        );
+      })}
     </span>
   );
 };
 
-const ItemCardInfo = ({
-  id,
-  itemUrl,
-  sdBrandName,
-  isLmoOfficialSeller,
-  isFashionSquareSeller,
-  hotSignalTitle,
-  itemName,
-  itemPrice,
-  deliveryText,
-  buyCount,
-  reviewPoint,
-  lmos,
-}) => {
+const ItemCardInfo = ({ id, itemUrl, sdBrandName, isLmoOfficialSeller, isFashionSquareSeller, hotSignalTitle, itemName, itemPrice, deliveryText, buyCount, reviewPoint, lmos }) => {
   return (
     <a href={itemUrl} className='link__itemcard-info'>
       <HotSignalInfo hotSignalTitle={hotSignalTitle} />
-      <ItemCardTitle
-        itemName={itemName}
-        isFashionSquareSeller={isFashionSquareSeller}
-        isLmoOfficialSeller={isLmoOfficialSeller}
-        sdBrandName={sdBrandName}
-      />
+      <ItemCardTitle itemName={itemName} isFashionSquareSeller={isFashionSquareSeller} isLmoOfficialSeller={isLmoOfficialSeller} sdBrandName={sdBrandName} />
       <PriceInfo itemPrice={itemPrice} />
       <DeliveryInfo deliveryText={deliveryText} />
       <ReviewInfo reviewPoint={reviewPoint} buyCount={buyCount} />

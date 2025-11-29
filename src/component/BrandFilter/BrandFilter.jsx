@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 
-const BrandFilter = ({ checkedInputs, setCheckedInputs, setBrandSetting, data, setIsFilteredItems, isFilteredItems, setIsAreacode }) => {
+const BrandFilter = ({ checkedInputs, setCheckedInputs, setBrandSetting, data, setIsFilteredItems, isFilteredItems, setIsAreacode, currentTab }) => {
   const { brands } = data || {};
+  const isEnglish = currentTab?.language === "en";
   const handleBrandReset = () => {
     setCheckedInputs([]);
     setBrandSetting(false);
@@ -9,8 +10,8 @@ const BrandFilter = ({ checkedInputs, setCheckedInputs, setBrandSetting, data, s
     setIsAreacode("200005781");
   };
   const handleDelete = (id) => {
+    // checkedInputs만 업데이트하면 useEffect가 자동으로 필터링 처리
     setCheckedInputs(checkedInputs.filter((el) => el !== id));
-    setIsFilteredItems(isFilteredItems.filter((el) => el.brandNo !== id));
   };
 
   useEffect(() => {
@@ -29,9 +30,15 @@ const BrandFilter = ({ checkedInputs, setCheckedInputs, setBrandSetting, data, s
       </div>
       <div className='box__filter'>
         {checkedInputs.map((v, i) => {
+          const brand = brands[v] || brands[String(v)];
+          if (!brand) return null;
+
+          // 탭 언어에 따라 브랜드명 선택
+          const brandName = isEnglish ? brand.brandNameEn : brand.brandNameKr;
+
           return (
             <span className='text__filter' key={i}>
-              {brands[v].brandName}
+              {brandName}
               <button
                 type='button'
                 className='button__delete'
