@@ -1,6 +1,6 @@
 import React from "react";
 
-function BrandFooter({ checkedInputs, data, setCheckedInputs, setBrandSetting, setIsFilteredItems, isFilteredItems, setIsAreacode }) {
+function BrandFooter({ checkedInputs, data, setCheckedInputs, setBrandSetting, setIsFilteredItems, isFilteredItems, updateBrandParams, selectedBrandTabs }) {
   const { brands } = data || {};
 
   const handleDelete = (id) => {
@@ -8,11 +8,14 @@ function BrandFooter({ checkedInputs, data, setCheckedInputs, setBrandSetting, s
   };
   const handleAllDelete = () => {
     setCheckedInputs([]);
-    setIsAreacode("200005781");
   };
   const handleItemSet = () => {
     setBrandSetting(true);
     setIsFilteredItems(isFilteredItems.sort((a, b) => b.buyCount - a.buyCount));
+    // URL 파라미터 업데이트
+    if (updateBrandParams && checkedInputs.length > 0) {
+      updateBrandParams(checkedInputs);
+    }
   };
   return (
     <div className='box__brand-footer'>
@@ -20,9 +23,19 @@ function BrandFooter({ checkedInputs, data, setCheckedInputs, setBrandSetting, s
         <div className='box__filter-wrap'>
           <div className='box__filter'>
             {checkedInputs.map((v, i) => {
+              const brand = brands[v] || brands[String(v)];
+              if (!brand) return null;
+              
+              // 각 브랜드별로 저장된 탭 정보 사용
+              const brandTab = selectedBrandTabs[v] || selectedBrandTabs[String(v)];
+              const isEnglish = brandTab?.language === "en";
+              
+              // 탭 언어에 따라 브랜드명 선택
+              const brandName = isEnglish ? (brand.brandNameEn || brand.brandName) : (brand.brandNameKr || brand.brandName);
+              
               return (
                 <span className='text__filter' key={i}>
-                  {brands[v].brandName}
+                  {brandName}
                   <button
                     type='button'
                     className='button__delete'

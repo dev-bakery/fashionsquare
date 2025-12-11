@@ -8,6 +8,7 @@ import FilterItem from "@/component/Filter/FilterItem";
 import SortItem from "@/component/SortItem/SortItem";
 import FilterLayer from "@/component/Filter/FilterLayer";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { fetchCategories } from "@/lib/api";
 
 const Category = () => {
   const [itemCount, setItemCount] = useState(0);
@@ -15,11 +16,10 @@ const Category = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const loadCategories = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://690d9707a6d92d83e85226b2.mockapi.io/api/categories");
-        const data = await response.json();
+        const data = await fetchCategories();
         setCategories(data);
       } catch (error) {
         console.error("Failed to fetch categories:", error);
@@ -28,7 +28,7 @@ const Category = () => {
       }
     };
 
-    fetchCategories();
+    loadCategories();
   }, []);
   const searchParams = useSearchParams();
   const router = useRouter();

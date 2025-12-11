@@ -11,17 +11,18 @@ const useFilterParams = () => {
     return value ? value.split(",").filter(Boolean) : [];
   }, [searchParams]);
 
-  const selectedFilters = useMemo(() => tokens.filter((token) => !token.startsWith("c:")), [tokens]);
+  const selectedFilters = useMemo(() => tokens.filter((token) => !token.startsWith("c:") && !token.startsWith("b:")), [tokens]);
 
   const toggleFilter = useCallback(
     (name) => {
       const categoryToken = tokens.find((token) => token.startsWith("c:"));
-      const currentFilters = tokens.filter((token) => !token.startsWith("c:"));
+      const brandTokens = tokens.filter((token) => token.startsWith("b:"));
+      const currentFilters = tokens.filter((token) => !token.startsWith("c:") && !token.startsWith("b:"));
 
       const hasFilter = currentFilters.includes(name);
       const nextFilters = hasFilter ? currentFilters.filter((token) => token !== name) : [...currentFilters, name];
 
-      const mergedTokens = [...(categoryToken ? [categoryToken] : []), ...nextFilters];
+      const mergedTokens = [...(categoryToken ? [categoryToken] : []), ...brandTokens, ...nextFilters];
 
       const params = new URLSearchParams(searchParams.toString());
       if (mergedTokens.length) {
@@ -41,8 +42,11 @@ const useFilterParams = () => {
   const clearFilters = useCallback(() => {
     const params = new URLSearchParams(searchParams.toString());
     const categoryToken = tokens.find((token) => token.startsWith("c:"));
-    if (categoryToken) {
-      params.set("f", categoryToken);
+    const brandTokens = tokens.filter((token) => token.startsWith("b:"));
+    const preservedTokens = [...(categoryToken ? [categoryToken] : []), ...brandTokens];
+    
+    if (preservedTokens.length > 0) {
+      params.set("f", preservedTokens.join(","));
     } else {
       params.delete("f");
     }
