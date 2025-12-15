@@ -3,7 +3,7 @@
  */
 const API_ENDPOINTS = {
   MOCKAPI_BASE: "https://690d9707a6d92d83e85226b2.mockapi.io/api",
-  STRAPI_BASE: "http://localhost:1337/api",
+  STRAPI_BASE: "https://strapidata.onrender.com/api",
 };
 
 /**
@@ -22,9 +22,7 @@ export const normalizeStrapiData = (payload) => {
       // Strapi 컴포넌트 구조 처리: reviewPoint
       if (attributes.reviewPoint) {
         if (attributes.reviewPoint.data) {
-          attributes.reviewPoint = Array.isArray(attributes.reviewPoint.data)
-            ? attributes.reviewPoint.data[0]?.attributes || attributes.reviewPoint.data[0]
-            : attributes.reviewPoint.data?.attributes || attributes.reviewPoint.data;
+          attributes.reviewPoint = Array.isArray(attributes.reviewPoint.data) ? attributes.reviewPoint.data[0]?.attributes || attributes.reviewPoint.data[0] : attributes.reviewPoint.data?.attributes || attributes.reviewPoint.data;
         }
       }
 
@@ -36,16 +34,12 @@ export const normalizeStrapiData = (payload) => {
               return lmo.attributes;
             }
             if (lmo?.data) {
-              return Array.isArray(lmo.data)
-                ? lmo.data.map((d) => d?.attributes || d)
-                : lmo.data?.attributes || lmo.data;
+              return Array.isArray(lmo.data) ? lmo.data.map((d) => d?.attributes || d) : lmo.data?.attributes || lmo.data;
             }
             return lmo;
           });
         } else if (attributes.lmos.data) {
-          attributes.lmos = Array.isArray(attributes.lmos.data)
-            ? attributes.lmos.data.map((d) => d?.attributes || d)
-            : [attributes.lmos.data?.attributes || attributes.lmos.data];
+          attributes.lmos = Array.isArray(attributes.lmos.data) ? attributes.lmos.data.map((d) => d?.attributes || d) : [attributes.lmos.data?.attributes || attributes.lmos.data];
         }
       }
 
@@ -117,4 +111,3 @@ export const fetchFashionTriangles = async ({ categoryCode, populate = true } = 
     throw error;
   }
 };
-
