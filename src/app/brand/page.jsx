@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Suspense } from "react";
 import BrandSubTab from "@/component/BrandSubTab/BrandSubTab";
 import BrandTabPanel from "@/component/BrandTabPanel/BrandTabPanel";
 import TabNavigation from "@/component/TabNavigation/TabNavigation";
@@ -16,7 +16,7 @@ import { fetchBrandData, fetchFashionTriangles } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 
-const Brand = () => {
+const BrandContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -362,4 +362,13 @@ const Brand = () => {
     </>
   );
 };
+
+const Brand = () => {
+  return (
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <BrandContent />
+    </Suspense>
+  );
+};
+
 export default Brand;

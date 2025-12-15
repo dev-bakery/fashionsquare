@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useMemo, useState, useEffect } from "react";
+import { useCallback, useMemo, useState, useEffect, Suspense } from "react";
 import CategoryLayer from "@/component/Category/CategoryLayer";
 import CategoryTab from "@/component/Category/CategoryTab";
 import CategoryList from "@/component/Category/CategoryList";
@@ -12,7 +12,7 @@ import { fetchCategories } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 
-const Category = () => {
+const CategoryContent = () => {
   const [itemCount, setItemCount] = useState(0);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -106,4 +106,13 @@ const Category = () => {
     </>
   );
 };
+
+const Category = () => {
+  return (
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <CategoryContent />
+    </Suspense>
+  );
+};
+
 export default Category;
