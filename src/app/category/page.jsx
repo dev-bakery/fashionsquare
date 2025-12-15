@@ -10,6 +10,8 @@ import FilterLayer from "@/component/Filter/FilterLayer";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { fetchCategories } from "@/lib/api";
 
+export const dynamic = "force-dynamic";
+
 const Category = () => {
   const [itemCount, setItemCount] = useState(0);
   const [categories, setCategories] = useState([]);

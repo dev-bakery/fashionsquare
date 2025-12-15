@@ -55,7 +55,9 @@ export const normalizeStrapiData = (payload) => {
  */
 export const fetchBrandData = async () => {
   try {
-    const response = await fetch(`${API_ENDPOINTS.MOCKAPI_BASE}/brand`);
+    const response = await fetch(`${API_ENDPOINTS.MOCKAPI_BASE}/brand`, {
+      cache: "no-store",
+    });
     const data = await response.json();
     // API 응답이 배열인 경우 첫 번째 요소 사용, 아니면 직접 사용
     const brandDataObj = Array.isArray(data) ? data[0] : data;
@@ -77,7 +79,9 @@ export const fetchBrandData = async () => {
  */
 export const fetchCategories = async () => {
   try {
-    const response = await fetch(`${API_ENDPOINTS.MOCKAPI_BASE}/categories`);
+    const response = await fetch(`${API_ENDPOINTS.MOCKAPI_BASE}/categories`, {
+      cache: "no-store",
+    });
     const data = await response.json();
     return data;
   } catch (error) {
@@ -103,7 +107,9 @@ export const fetchFashionTriangles = async ({ categoryCode, populate = true } = 
       apiUrl.searchParams.append("filters[lcode][$eq]", categoryCode);
     }
 
-    const response = await fetch(apiUrl.toString());
+    const response = await fetch(apiUrl.toString(), {
+      cache: "no-store",
+    });
     const payload = await response.json();
     return normalizeStrapiData(payload);
   } catch (error) {

@@ -14,6 +14,8 @@ import ItemContainer from "@/component/ItemContainer/ItemContainer";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { fetchBrandData, fetchFashionTriangles } from "@/lib/api";
 
+export const dynamic = "force-dynamic";
+
 const Brand = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
